@@ -45,34 +45,36 @@ impl Game {
 
     pub fn draw(&self) {
         for (i, line) in (&self.board).into_iter().enumerate() {
+            print!("{} ", 8 - i);
             for (k, peice) in line.into_iter().enumerate() {
                 if let Some(item) = peice {
                     use Type::*;
                     let peice = match item.style {
-                        Pawn => "🨅 ",
-                        Rook => "🨂 ",
-                        Knight => "🨄 ",
-                        Bishiop => "🨃 ",
-                        Queen => "🨁 ",
-                        King => "🨀 ",
+                        Pawn => "♟ ",
+                        Rook => "♜ ",
+                        Knight => "♞ ",
+                        Bishiop => "♝ ",
+                        Queen => "♛ ",
+                        King => "♚ ",
                     };
+
                     let peice = match item.color {
                         Color::White => peice.bright_white(),
-                        Color::Black => peice.bright_black(),
+                        Color::Black => peice.black(),
                     }; 
                     let peice = if (i + k) % 2 == 1 {
-                        peice.on_black()
+                        peice.on_bright_black()
                     } else {
-                        peice.on_white()
+                        peice.on_green()
                     };
 
                     print!("{}", peice);
                 } else {
                     let peice = "  ";
                     let peice = if (i + k) % 2 == 1 {
-                        peice.on_black()
+                        peice.on_bright_black()
                     } else {
-                        peice.on_white()
+                        peice.on_green()
                     };
 
                     print!("{}", peice);
