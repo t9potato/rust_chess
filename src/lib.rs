@@ -60,21 +60,21 @@ impl Game {
 
                     let peice = match item.color {
                         Color::White => peice.bright_white(),
-                        Color::Black => peice.black(),
+                        Color::Black => peice.bright_black(),
                     }; 
                     let peice = if (i + k) % 2 == 1 {
-                        peice.on_bright_black()
+                        peice.on_black()
                     } else {
-                        peice.on_green()
+                        peice.on_bright_green()
                     };
 
                     print!("{}", peice);
                 } else {
                     let peice = "  ";
                     let peice = if (i + k) % 2 == 1 {
-                        peice.on_bright_black()
+                        peice.on_black()
                     } else {
-                        peice.on_green()
+                        peice.on_bright_green()
                     };
 
                     print!("{}", peice);
@@ -82,5 +82,6 @@ impl Game {
             }
             println!();
         }
+        println!("  A B C D E F G H");
     }
 }
