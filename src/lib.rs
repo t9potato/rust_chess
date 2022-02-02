@@ -84,4 +84,13 @@ impl Game {
         }
         println!("  A B C D E F G H");
     }
+
+    pub fn guess(&self, guess: String) -> Option<()> {
+        self.parse_guess(guess)?;
+        Some(())
+    }
+
+    fn parse_guess(&self, guess: String) -> Option<()> {
+        Some(())
+    }
 }
